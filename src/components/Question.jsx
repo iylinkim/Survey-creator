@@ -6,6 +6,7 @@ const Question = () => {
   const optionChange = (e) => {
     setOption(e.target.value);
   };
+
   return (
     <li>
       <p className="question_title">

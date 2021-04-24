@@ -7,13 +7,14 @@ import { add_content } from "../store";
 
 const Content = ({ option, questions, addContent }) => {
   const onClick = () => {
-    console.log("add content");
     addContent();
   };
   return (
     <div>
-      {questions.map((question) => getContent(option))}
-      <button onClick={onClick}>+</button>
+      {questions.map((question) => {
+        return getContent(option, question, question.id);
+      })}
+      {option !== "Textbox" && <button onClick={onClick}>+</button>}
     </div>
   );
 };
@@ -30,15 +31,15 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);
 
-function getContent(option = "MultiChoice") {
+function getContent(option, props, key) {
   switch (option) {
     case "MultiChoice":
-      return <MultiChoice />;
+      return <MultiChoice {...props} key={key} />;
     case "Checkbox":
-      return <Checkbox />;
+      return <Checkbox {...props} key={key} />;
     case "Textbox":
-      return <Textbox />;
+      return <Textbox {...props} key={key} />;
     default:
-      return <MultiChoice />;
+      return <MultiChoice {...props} key={key} />;
   }
 }
