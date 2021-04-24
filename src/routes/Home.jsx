@@ -1,7 +1,7 @@
 import React from "react";
 import Question from "../components/Question";
 
-const Home = () => {
+const Home = ({ questions }) => {
   return (
     <>
       <h1>TurnChat! Form</h1>
@@ -14,8 +14,13 @@ const Home = () => {
             <input type="text" />
           </p>
         </form>
+        {/* <ul className="questions">
+          {questions.map((question) => (
+            <Question {...question} />
+          ))}
+        </ul> */}
         <ul className="questions">
-          <Question />
+            <Question/>
         </ul>
       </div>
     </>

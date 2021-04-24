@@ -1,23 +1,34 @@
 import React from "react";
-import { add_content } from "../store";
 import Checkbox from "./Checkbox";
 import MultiChoice from "./MultiChoice";
 import Textbox from "./Textbox";
+import { connect } from "react-redux";
+import { add_content } from "../store";
 
-const onClick = () => {
-  add_content("");
-};
-
-const Content = ({ option }) => {
+const Content = ({ option, questions, addContent }) => {
+  const onClick = () => {
+    console.log("add content");
+    addContent();
+  };
   return (
     <div>
-      {getContent(option)}
+      {questions.map((question) => getContent(option))}
       <button onClick={onClick}>+</button>
     </div>
   );
 };
 
-export default Content;
+const mapStateToProps = (state) => {
+  return { questions: state };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addContent: () => dispatch(add_content()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Content);
 
 function getContent(option = "MultiChoice") {
   switch (option) {
@@ -27,5 +38,7 @@ function getContent(option = "MultiChoice") {
       return <Checkbox />;
     case "Textbox":
       return <Textbox />;
+    default:
+      return <MultiChoice />;
   }
 }
