@@ -17,6 +17,8 @@ const Content = ({ option }) => {
   );
 };
 
+export default Content;
+
 function getContent(option = "MultiChoice") {
   switch (option) {
     case "MultiChoice":
