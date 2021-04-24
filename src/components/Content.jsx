@@ -13,7 +13,7 @@ const Content = ({ option, questions, addContent }) => {
   return (
     <div>
       {option !== "Textbox" && <button onClick={onClick} class="add_content_btn">+</button>}
-      {questions.map((question) => {
+      {option !== "Textbox" && questions.map((question) => {
         return getContent(option, question, question.id);
       })}
     </div>
