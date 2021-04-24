@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Content from "./Content";
+import "../scss/question.scss";
 
 const Question = () => {
   const [option, setOption] = useState("MultiChoice");
@@ -8,7 +9,7 @@ const Question = () => {
   };
 
   return (
-    <li>
+    <li className="question">
       <p className="question_title">
         <input type="text" placeholder="Question Text" />
       </p>
@@ -20,10 +21,8 @@ const Question = () => {
         <option value="Checkbox">Checkbox</option>
         <option value="Textbox">Textbox</option>
       </select>
-      <div>
-        <Content option={option} />
-      </div>
-      <button>Remove</button>
+      <Content option={option} />
+      <button class="question_del_btn">Remove</button>
     </li>
   );
 };

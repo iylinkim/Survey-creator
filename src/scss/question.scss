@@ -1,0 +1,41 @@
+@import "common.scss";
+
+.question {
+  padding: 20px 15px;
+  border-radius: 5px;
+  background-color: $white;
+  position:relative;
+}
+
+.question_title {
+    padding-bottom:10px;
+  & > input {
+      font-size:1.2rem;
+    font-weight: 700;
+  }
+}
+
+.type_options{
+    padding:5px;
+    position:absolute;
+    right:15px;
+    top:20px;
+}
+
+.question_del_btn{
+    border:none;
+    outline:none;
+    padding:5px 7px;
+    border-radius:3px;
+    background-color:#173252;
+    color:$white;
+    position:absolute;
+    right:15px;
+    bottom:20px;
+    cursor:pointer;
+    transition:all 0.2s ease;
+}
+
+.question_del_btn:hover{
+    background-color:#8a0f23;
+}

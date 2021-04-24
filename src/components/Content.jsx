@@ -4,6 +4,7 @@ import MultiChoice from "./MultiChoice";
 import Textbox from "./Textbox";
 import { connect } from "react-redux";
 import { add_content } from "../store";
+import "../scss/content.scss";
 
 const Content = ({ option, questions, addContent }) => {
   const onClick = () => {
@@ -11,10 +12,10 @@ const Content = ({ option, questions, addContent }) => {
   };
   return (
     <div>
+      {option !== "Textbox" && <button onClick={onClick} class="add_content_btn">+</button>}
       {questions.map((question) => {
         return getContent(option, question, question.id);
       })}
-      {option !== "Textbox" && <button onClick={onClick}>+</button>}
     </div>
   );
 };

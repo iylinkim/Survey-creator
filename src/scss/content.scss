@@ -1,0 +1,53 @@
+@import "common.scss";
+
+.add_content_btn {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: $focusBorderBlue;
+  color: $white;
+  cursor: pointer;
+}
+
+.add_content_btn:hover {
+  opacity: 0.7;
+}
+
+/* content */
+.content_wrap{
+    margin-top:15px;
+}
+.radio_checkbox {
+  vertical-align: middle;
+}
+
+.content_text {
+  display: inline-block;
+  padding: 5px 0;
+  margin: 0 5px;
+  vertical-align: middle;
+  background-color: #efefef;
+  text-indent:5px;
+}
+
+.content_text.textbox{
+    display:inline-block;
+    width:100%;
+}
+
+.content_del_btn{
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    color:#fff;
+    border: none;
+    outline: none;
+    background-color:#e05138;
+    cursor:pointer;
+}
+
+.content_del_btn:hover{
+    opacity: 0.8;
+}

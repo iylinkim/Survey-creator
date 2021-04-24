@@ -4,16 +4,15 @@ import { remove_content } from "../store";
 
 const MultiChoice = ({ onDelete }) => {
   return (
-    <>
-      <input type="radio" />
-      <input type="text" />
-      <button onClick={onDelete}>-</button>
-    </>
+    <div className="content_wrap">
+      <input type="radio" className="radio_checkbox"/>
+      <input type="text" className="content_text" />
+      <button className="content_del_btn" onClick={onDelete}>-</button>
+    </div>
   );
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(ownProps.id);
   return {
     onDelete: () => dispatch(remove_content(ownProps.id)),
   };
