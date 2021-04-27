@@ -9,15 +9,15 @@
   background-color: $focusBorderBlue;
   color: $white;
   cursor: pointer;
-}
 
-.add_content_btn:hover {
-  opacity: 0.7;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 /* content */
-.content_wrap{
-    margin-top:15px;
+.content_wrap {
+  margin-top: 15px;
 }
 .radio_checkbox {
   vertical-align: middle;
@@ -28,28 +28,27 @@
   padding: 5px 0;
   margin: 0 5px;
   vertical-align: middle;
-  background-color: #efefef;
-  text-indent:5px;
-
-} 
-
-.content_text.textbox{
-    display:inline-block;
-    width:100%;
-    margin-bottom:50px;
+  background-color: $inputBakGrey;
+  text-indent: 5px;
 }
 
-.content_del_btn{
-    width:15px;
-    height:15px;
-    border-radius:50%;
-    color:#fff;
-    border: none;
-    outline: none;
-    background-color:#e05138;
-    cursor:pointer;
+.content_text.textbox {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
-.content_del_btn:hover{
+.content_del_btn {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  color: $white;
+  border: none;
+  outline: none;
+  background-color: $buttonRed;
+  cursor: pointer;
+
+  &:hover {
     opacity: 0.7;
+  }
 }
