@@ -19,11 +19,16 @@ const Content = ({ option, cont, addContent, questionId }) => {
         </button>
       )}
 
-      {option !== "Textbox" ?
-        cont[questionId].contents.map((question) => {
-          return getContent(option, question, questionId, question.id);
-        })
-      : getContent(option,{id:1} , questionId, {id:1}.id)}
+      {option !== "Textbox"
+        ? cont[questionId].contents.map((question) => {
+            return getContent(option, question, questionId, question.id);
+          })
+        : getContent(
+            option,
+            { id: Date.now() },
+            questionId,
+            { id: Date.now() }.id
+          )}
     </div>
   );
 };

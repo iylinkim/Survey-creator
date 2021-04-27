@@ -6,7 +6,6 @@ const Textbox = ({ getText, questionId, contentId }) => {
   const inputRef = useRef();
 
   const handleText = () => {
-    console.log(inputRef.current.value)
     getText({ questionId, contentId, text: inputRef.current.value });
   };
   return (

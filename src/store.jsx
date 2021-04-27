@@ -10,13 +10,17 @@ export const survey = createSlice({
     },
     remove_content: (state, action) => {
       const { questionId, contentId } = action.payload;
-      return state[questionId].contents.filter((cont) => {
-        return cont.id !== contentId;
-      });
+      const filtered = { ...state }[questionId].contents.filter(
+        (cont) => cont.id !== contentId
+      );
+      
+      state[questionId] = {
+        ...{ ...state }[questionId],
+        contents: filtered,
+      }
     },
     get_content: (state, action) => {
       const { questionId, contentId, text } = action.payload;
-      console.log(state[questionId].contents.length)
       state[questionId].contents.forEach((cont, i, origin) => {
         if (cont.id === contentId) {
           origin[i] = { ...origin[i], text };
@@ -34,9 +38,9 @@ export const survey = createSlice({
       };
     },
     remove_question: (state, action) => {
-      const target = Object.keys(state).filter((key) => {
-        return state[key].id !== action.payload;
-      })[0];
+      const target = Object.keys(state).filter(
+        (key) => state[key].id === action.payload
+      )[0];
       const updated = { ...state };
       delete updated[target];
       return updated;

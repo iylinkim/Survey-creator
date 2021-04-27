@@ -6,6 +6,7 @@ const MultiChoice = ({ onDelete, getText, questionId, contentId }) => {
   const inputRef = useRef();
 
   const onClick = () => {
+    console.log(remove_content({ questionId, contentId }))
     onDelete({ questionId, contentId });
   };
   

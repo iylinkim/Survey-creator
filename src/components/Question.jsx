@@ -10,10 +10,12 @@ import {
 import { connect } from "react-redux";
 
 const Question = ({ onDelete, getType, getTitle, getDesc, id }) => {
+  const [option, setOption] = useState("MultiChoice");
+  
   const titleRef = useRef();
   const descRef = useRef();
   const selectRef = useRef();
-  const [option, setOption] = useState("MultiChoice");
+  
   const optionChange = (e) => {
     setOption(e.currentTarget.value);
     const selectOption = Array.from(selectRef.current.childNodes).filter(
@@ -27,6 +29,11 @@ const Question = ({ onDelete, getType, getTitle, getDesc, id }) => {
   };
   const handleDesc = () => {
     getDesc({ id, text: titleRef.current.value });
+  };
+
+  const onClick = () => {
+    const ok = window.confirm("이 항목을 지울까요?");
+    ok && onDelete();
   };
 
   return (
@@ -52,7 +59,7 @@ const Question = ({ onDelete, getType, getTitle, getDesc, id }) => {
         <option value="Textbox">Textbox</option>
       </select>
       <Content option={option} questionId={id} />
-      <button onClick={onDelete} className="question_del_btn">
+      <button onClick={onClick} className="question_del_btn">
         Remove
       </button>
     </li>

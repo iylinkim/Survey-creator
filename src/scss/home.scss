@@ -1,37 +1,30 @@
-@import "common.scss";
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style: none;
-}
-
-textarea,
-input {
-  border: 1px solid transparent;
-  outline: none;
-}
-
-textarea:focus,
-input:focus {
-  border: 1px solid $focusBorderBlue;
-}
-
-textarea {
-  resize: none;
-}
-body {
-  background-color: $mainBakLightBlue;
-}
+@import "./common.scss";
 
 .title {
   padding: 30px 0;
   font-size: 1.5rem;
-  background-color: $white;
+  background-color: $mainBakDarkBlue;
+  color: $white;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  & .title_text {
+    z-index: 2;
+    position: relative;
+  }
+
+  & .circle {
+    display: block;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: $mainSkyBlue;
+    position: absolute;
+    left: -200px;
+    top: -50%;
+    z-index: 1;
+  }
 }
 
 .main_body {
@@ -63,31 +56,66 @@ body {
 }
 
 /* add_btn */
-.add_btn_area{
-  & button{
-    width:25px;
-    height:25px;
-    border:none;
-    outline:none;
-    background-color:$focusBorderBlue;
-    color:$white;
-    cursor:pointer;
+.add_btn_area {
+  & button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    outline: none;
+    background-color: $focusBorderBlue;
+    color: $white;
+    cursor: pointer;
   }
 }
 
-
 /* submit_btn */
-.submit_btn_area{
-  width:100%;
-  text-align:center;
+.submit_btn_area {
+  width: 100%;
+  text-align: center;
 }
-.submit_btn{
-  padding:10px 30px;
-  font-size:0.8rem;
-  border:none;
-  outline:none;
-  border-radius:3px;
-  background-color:$focusBorderBlue;
-  color:$white;
-  cursor:pointer;
+.submit_btn {
+  padding: 10px 30px;
+  font-size: 0.8rem;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background-color: $focusBorderBlue;
+  color: $white;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+/* loading */
+.loading {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bakBlack;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid $focusBorderBlue;
+    border-radius: 50%;
+    border-top-color: #ccc;
+    animation: loading 0.8s linear infinite;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

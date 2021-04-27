@@ -1,0 +1,18 @@
+@import "common.scss";
+
+.complete{
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.complete_text{
+    width:300px;
+    height:100px;
+    border-radius:10px;
+    border-top:20px solid $mainBakDarkBlue;
+    text-align:center;
+    line-height:100px;
+    background-color:$white;
+    box-shadow:0 0 10px $shadow;
+}
