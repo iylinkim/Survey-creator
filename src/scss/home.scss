@@ -61,3 +61,33 @@ body {
 .questions {
   margin-top: 30px;
 }
+
+/* add_btn */
+.add_btn_area{
+  & button{
+    width:25px;
+    height:25px;
+    border:none;
+    outline:none;
+    background-color:$focusBorderBlue;
+    color:$white;
+    cursor:pointer;
+  }
+}
+
+
+/* submit_btn */
+.submit_btn_area{
+  width:100%;
+  text-align:center;
+}
+.submit_btn{
+  padding:10px 30px;
+  font-size:0.8rem;
+  border:none;
+  outline:none;
+  border-radius:3px;
+  background-color:$focusBorderBlue;
+  color:$white;
+  cursor:pointer;
+}

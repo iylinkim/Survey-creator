@@ -6,41 +6,78 @@ import { connect } from "react-redux";
 import { add_content } from "../store";
 import "../scss/content.scss";
 
-const Content = ({ option, questions, addContent }) => {
+const Content = ({ option, cont, addContent, questionId }) => {
   const onClick = () => {
-    addContent();
+    addContent(questionId);
   };
+
   return (
     <div>
-      {option !== "Textbox" && <button onClick={onClick} class="add_content_btn">+</button>}
-      {option !== "Textbox" && questions.map((question) => {
-        return getContent(option, question, question.id);
-      })}
+      {option !== "Textbox" && (
+        <button onClick={onClick} className="add_content_btn">
+          +
+        </button>
+      )}
+
+      {option !== "Textbox" ?
+        cont[questionId].contents.map((question) => {
+          return getContent(option, question, questionId, question.id);
+        })
+      : getContent(option,{id:1} , questionId, {id:1}.id)}
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  return { questions: state };
+  return { cont: state };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    addContent: () => dispatch(add_content()),
+    id: ownProps.id,
+    addContent: (id) => dispatch(add_content(id)),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);
 
-function getContent(option, props, key) {
+function getContent(option, props, id, contentId) {
   switch (option) {
     case "MultiChoice":
-      return <MultiChoice {...props} key={key} />;
+      return (
+        <MultiChoice
+          {...props}
+          key={contentId}
+          questionId={id}
+          contentId={contentId}
+        />
+      );
     case "Checkbox":
-      return <Checkbox {...props} key={key} />;
+      return (
+        <Checkbox
+          {...props}
+          key={contentId}
+          questionId={id}
+          contentId={contentId}
+        />
+      );
     case "Textbox":
-      return <Textbox {...props} key={key} />;
+      return (
+        <Textbox
+          {...props}
+          key={contentId}
+          questionId={id}
+          contentId={contentId}
+        />
+      );
     default:
-      return <MultiChoice {...props} key={key} />;
+      return (
+        <MultiChoice
+          {...props}
+          key={contentId}
+          questionId={id}
+          contentId={contentId}
+        />
+      );
   }
 }
