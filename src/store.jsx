@@ -13,11 +13,11 @@ export const survey = createSlice({
       const filtered = { ...state }[questionId].contents.filter(
         (cont) => cont.id !== contentId
       );
-      
+
       state[questionId] = {
         ...{ ...state }[questionId],
         contents: filtered,
-      }
+      };
     },
     get_content: (state, action) => {
       const { questionId, contentId, text } = action.payload;

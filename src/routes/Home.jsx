@@ -33,6 +33,8 @@ const Home = ({ data, addQuestion }) => {
 
     target.parentNode.parentNode.prepend(loading);
   };
+
+  console.log('home')
   return (
     <div>
       <h1 className="title">

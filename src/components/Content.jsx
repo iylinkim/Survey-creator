@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Checkbox from "./Checkbox";
 import MultiChoice from "./MultiChoice";
 import Textbox from "./Textbox";
@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { add_content } from "../store";
 import "../scss/content.scss";
 
-const Content = ({ option, cont, addContent, questionId }) => {
+const Content = memo(({ option, cont, addContent, questionId }) => {
   const onClick = () => {
     addContent(questionId);
   };
@@ -18,7 +18,6 @@ const Content = ({ option, cont, addContent, questionId }) => {
           +
         </button>
       )}
-
       {option !== "Textbox"
         ? cont[questionId].contents.map((question) => {
             return getContent(option, question, questionId, question.id);
@@ -31,7 +30,7 @@ const Content = ({ option, cont, addContent, questionId }) => {
           )}
     </div>
   );
-};
+});
 
 const mapStateToProps = (state) => {
   return { cont: state };

@@ -11,11 +11,11 @@ import { connect } from "react-redux";
 
 const Question = ({ onDelete, getType, getTitle, getDesc, id }) => {
   const [option, setOption] = useState("MultiChoice");
-  
+
   const titleRef = useRef();
   const descRef = useRef();
   const selectRef = useRef();
-  
+
   const optionChange = (e) => {
     setOption(e.currentTarget.value);
     const selectOption = Array.from(selectRef.current.childNodes).filter(
