@@ -2,7 +2,7 @@
 
 Simple survey maker web application with React and Redux toolkit.
 
-<!-- ### [Demo](https://iylinkim.github.io/minesweeper) -->
+### [Demo](https://iylinkim.github.io/Survey-creator)
 
 ![localhost_3000_](https://user-images.githubusercontent.com/66230563/117742559-ffd89580-b23f-11eb-947b-459591477982.png)
 
