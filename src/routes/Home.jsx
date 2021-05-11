@@ -29,12 +29,12 @@ const Home = ({ data, addQuestion }) => {
     const loading = document.createElement("div");
     loading.innerHTML = `<p class="spinner"></p>`;
     loading.className = "loading";
-    loading.style.height = `${window.outerHeight}px`
+    loading.style.height = `${window.outerHeight}px`;
 
     target.parentNode.parentNode.prepend(loading);
   };
 
-  console.log('home')
+  console.log("home");
   return (
     <div>
       <h1 className="title">

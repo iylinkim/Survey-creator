@@ -1,4 +1,3 @@
-import React, { memo } from "react";
 import Checkbox from "./Checkbox";
 import MultiChoice from "./MultiChoice";
 import Textbox from "./Textbox";
@@ -6,7 +5,7 @@ import { connect } from "react-redux";
 import { add_content } from "../store";
 import "../scss/content.scss";
 
-const Content = memo(({ option, cont, addContent, questionId }) => {
+const Content = ({ option, cont, addContent, questionId }) => {
   const onClick = () => {
     addContent(questionId);
   };
@@ -30,7 +29,7 @@ const Content = memo(({ option, cont, addContent, questionId }) => {
           )}
     </div>
   );
-});
+};
 
 const mapStateToProps = (state) => {
   return { cont: state };

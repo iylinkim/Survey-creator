@@ -2,8 +2,7 @@ import React, { useRef } from "react";
 import { connect } from "react-redux";
 import { remove_content, get_content } from "../store";
 
-const MultiChoice = ({ onDelete, getText, questionId, contentId }) => {
-  console.log(onDelete, getText, questionId, contentId)
+const ContentDetail = ({ option, onDelete, getText, questionId, contentId }) => {
   const inputRef = useRef();
 
   const onClick = () => {
@@ -31,11 +30,14 @@ const MultiChoice = ({ onDelete, getText, questionId, contentId }) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log('ContentDetail')
+
   return {
     id: ownProps.id,
+    option: ownProps.option,
     onDelete: (data) => dispatch(remove_content(data)),
     getText: (data) => dispatch(get_content(data)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(MultiChoice);
+export default React.memo(connect(null, mapDispatchToProps)(ContentDetail));
