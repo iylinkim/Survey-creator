@@ -39,7 +39,7 @@ const Home = ({ data, addQuestion }) => {
     <div>
       <h1 className="title">
         <span className="circle"></span>
-        <span className="title_text">TurnChat! Form</span>
+        <span className="title_text">Survey Form</span>
       </h1>
       <section className="main_body">
         <div className="main_body_content">
